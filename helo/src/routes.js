@@ -4,12 +4,13 @@ import Auth from './component/Auth/Auth';
 import Dashboard from './component/Dashboard/Dashboard';
 import Form from './component/Form/Form';
 import Post from './component/Post/Post';
+import { Link } from 'react-router-dom';
 
 export default(
     <Switch>
-        <Route path='/' exact component={ Auth } />
-        <Route path='/dashboard' component={ Dashboard } />
-        <Route path='/new' component={ Form } />
-        <Route path='/post/:postid' component={ Post } />
+        <Link to='/' exact component={ Auth }></Link>
+        <Link to='/dashboard' component={ Dashboard }></Link>
+        <Link to='/new' component={ Form }></Link>
+        <Link to='/post/:postid' component={ Post }></Link>
     </Switch>
 )

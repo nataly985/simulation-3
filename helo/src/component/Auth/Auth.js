@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { updateUsername, updateUserId, updateImg} from './reducer';
+
+import { updateUsername, updateUserId, updateImg} from '../../ducks/reducer';
 
 class Auth extends Component(){
     constructor(){
@@ -25,6 +26,7 @@ class Auth extends Component(){
         })
     }
     render(){
+        const{ updateUsername, updateUserId, updateImg }= this.props;
         return(
             <div>
             <p>{this.Logout}</p>

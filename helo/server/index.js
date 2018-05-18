@@ -12,6 +12,8 @@ app.use(bodyParser.json() );
 //     app.set('db', db);
 // })
 
+// app.use(express.static(__dirname + './../build'))
+
 // app.get('api/', hc.read);
 // app.post('api/', hc.create);
 // app.delete('/:id', hc.delete);

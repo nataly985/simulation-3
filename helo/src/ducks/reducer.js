@@ -7,7 +7,7 @@ const UPDATE_USERNAME = "UPDATE_USERNAME";
 const UPDATE_USERID = "UPDATE_USERID";
 const UPDATE_IMG = "UPDATE_IMG";
 
-export function reducer( state = inititalState, action){
+export  default function reducer( state = inititalState, action){
     switch(action.type){
         case UPDATE_USERNAME:
         return Object.assign( {}, state, {username: action.payload});
@@ -24,19 +24,19 @@ export function reducer( state = inititalState, action){
 
 }
 
-export function updateUsername(){
+export function updateUsername(name){
     return{
         type: UPDATE_USERNAME,
         payload: name
     }
 }
- export function updateUserId(){
+ export function updateUserId(id){
      return{
          type: UPDATE_USERID,
          payload: id
      }
  }
- export function updateImg() {
+ export function updateImg(img) {
      return{
          type: UPDATE_IMG,
          payload: img
