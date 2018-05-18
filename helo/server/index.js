@@ -1,9 +1,21 @@
-require('doten').config();
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-Parser');
+const hc = require('./controller.js');
+const massive = require('massive');
 
 const app = express();
 
-app.listen(SERVER_PORT, () => {
-    console.log(`Listening on port: ${SERVER_PORT}`)
-})
+app.use(bodyParser.json() );
+
+// massive(process.env.CONNECTION_STRING).then((db) => {
+//     app.set('db', db);
+// })
+
+// app.get('api/', hc.read);
+// app.post('api/', hc.create);
+// app.delete('/:id', hc.delete);
+
+
+const port = process.env.PORT || 3002
+app.listen( port, () => {console.log (`Server listening on port ${port}.`)});
