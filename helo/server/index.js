@@ -9,12 +9,7 @@ const massive = require('massive');
 const {
     SERVER_PORT,
     SESSION_SECRET,
-    DOMAIN,
-    CLIENT_ID,
-    CLIENT_SECRET,
-    CALLBACK_URL,
     CONNECTION_STRING
-
 } = process.env;
 
 const app = express();

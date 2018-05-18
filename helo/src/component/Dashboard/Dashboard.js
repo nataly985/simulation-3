@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 
 class Dashboard extends Component {
@@ -26,6 +27,12 @@ class Dashboard extends Component {
         this.setState({isChecked: !this.state.isChecked});
         
     }
+    componentDidMount(){
+        let {id} = this.props.match.params;
+        axios.get('/api/user/:id').then((response) => {
+            this.setState({userId: id})
+        })
+    }
     componentDidMount() {
         let {id} = this.props.match.params;
         axios.delete('/api/posts/:id').then((response) => {
@@ -48,5 +55,10 @@ class Dashboard extends Component {
         )
     }
 }
+function mapStateToProps(state){
+    return {
+        userId: state.id
+    }
 
-export default Dashboard;
+}
+export default connect(mapStateToProps)(Dashboard);
