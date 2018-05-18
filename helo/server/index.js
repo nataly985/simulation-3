@@ -16,9 +16,10 @@ const app = express();
 
 app.use(bodyParser.json() );
 
-// massive(CONNECTION_STRING).then((db) => {
-//     app.set('db', db);
-// })
+massive(CONNECTION_STRING).then((db) => {
+    console.log(db);
+    app.set('db', db);
+})
 
 app.use(express.static(__dirname + './../build'))
 
@@ -27,7 +28,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
-
+// console.log(session);
 app.get('api/user', hc.read);
 app.get('api/post', hc.create)
 app.post('api/', hc.create);

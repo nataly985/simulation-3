@@ -38,4 +38,10 @@ function mapStateToProps(state){
         img: state.image
     }
 }
-export default connect(mapStateToProps)(Nav);
+function mapDispatchToProps(dispatch){
+    return{
+        onNameChanged: (name) => dispatch({type: "NAME_CHANGED", payload: name}),
+        onImgChanged: (img) => dispatch( {type: 'IMG_CHANGED', payload: img}),
+    }
+}
+export default connect(mapStateToProps)(mapDispatchToProps)(Nav);
