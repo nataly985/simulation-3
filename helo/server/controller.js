@@ -35,5 +35,13 @@ module.exports = {
         db.user([params.id])
         .then(() => res.status(204).send('No content'))
         .catch(() => res.status(404). send('No found'))
+    },
+    delete: (req,res) => {
+        const db = req.app.get('db');
+        const { params } = req;
+
+        db.post([params.id])
+        .then(() => res.status(204).send('No content'))
+        .catch(() => res.status(404). send('No found'))
     }
 }

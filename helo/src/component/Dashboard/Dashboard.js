@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 
 class Dashboard extends Component {
@@ -24,6 +25,12 @@ class Dashboard extends Component {
     handleChange () {
         this.setState({isChecked: !this.state.isChecked});
         
+    }
+    componentDidMount() {
+        let {id} = this.props.match.params;
+        axios.delete('/api/posts/:id').then((response) => {
+          this.setState({ posts: response.data[0] })
+        })
     }
     render() {
         let postsUpdate = this.state.posts.map( ( element, index) =>{

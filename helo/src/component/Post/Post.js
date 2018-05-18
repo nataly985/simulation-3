@@ -1,15 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Post extends Component{
-    constructor(){
-        super();
-    }
-
-    render(){
-        return(
-            <Post/>
-        )
-    }
+export default function Post(){
+    return(
+        <div>Post</div>
+    )
 }
 
-export default Post;
+
+

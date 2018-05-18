@@ -21,10 +21,11 @@ class Auth extends Component(){
         this.setState( { password: pass});
     }
     componentDidMount(){
-        axios.get('./api/').then((response) => {
+        axios.get('./api/user').then((response) => {
             this.setState( { username:response.data},{password:response.data})
         })
     }
+
     render(){
         const{ updateUsername, updateUserId, updateImg }= this.props;
         return(
