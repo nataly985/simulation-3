@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 class Nav extends Component{
     constructor(){
@@ -21,6 +22,7 @@ class Nav extends Component{
         this.setState({ logout:value})
     }
     render(){
+        const{ username, img }= this.props;
         return(
         <div>
             <button onClick={this.handleHome}>Home</button>
@@ -30,4 +32,10 @@ class Nav extends Component{
         )
     }
 }
-export default Nav;
+function mapStateToProps(state){
+    return{
+        username:state.username,
+        img: state.image
+    }
+}
+export default connect(mapStateToProps)(Nav);
